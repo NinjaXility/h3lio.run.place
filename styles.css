@@ -71,14 +71,15 @@ body {
 
 .audio-info .song-title {
     margin: 0;
-    font-size: 1.1em;
+    font-size: 1.2em; /* Larger size for song title */
     font-weight: bold;
 }
 
 .audio-info .artist-name {
     margin: 0;
-    font-size: 0.9em;
+    font-size: 0.85em; /* Smaller size for artist name */
     color: #aaa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Subtle font */
     margin-top: 4px;
 }
 
@@ -101,43 +102,53 @@ body {
 
 /* Play/Pause Button */
 .play-btn, .pause-btn {
-    width: 30px;
-    height: 30px;
-    background-color: #999; /* Gray color */
+    width: 40px;
+    height: 40px;
+    background-color: #888; /* Gray color */
     border: none;
     border-radius: 50%;
     cursor: pointer;
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 0; /* Hide default button text */
+    position: relative;
 }
 
+/* Play Button (Triangle) */
 .play-btn::before {
     content: '';
     position: absolute;
     left: 12px;
     width: 0;
     height: 0;
-    border-left: 10px solid white;
-    border-top: 7px solid transparent;
-    border-bottom: 7px solid transparent;
+    border-left: 15px solid white;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
 }
 
+/* Pause Button (Two Lines) */
 .pause-btn::before, .pause-btn::after {
     content: '';
     position: absolute;
     background-color: white;
-    top: 7px;
-    width: 5px;
-    height: 16px;
+    top: 10px;
+    width: 6px;
+    height: 20px;
 }
 
 .pause-btn::before {
-    left: 8px;
+    left: 10px;
 }
 
 .pause-btn::after {
-    right: 8px;
+    right: 10px;
+}
+
+/* Center Play/Pause Button */
+.audio-player button {
+    margin-left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
