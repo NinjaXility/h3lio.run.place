@@ -69,9 +69,17 @@ body {
     padding-left: 10px;
 }
 
-.audio-info h3 {
+.audio-info .song-title {
     margin: 0;
     font-size: 1.1em;
+    font-weight: bold;
+}
+
+.audio-info .artist-name {
+    margin: 0;
+    font-size: 0.9em;
+    color: #aaa;
+    margin-top: 4px;
 }
 
 /* Progress Bar */
@@ -91,21 +99,25 @@ body {
     transition: width 0.1s;
 }
 
+/* Play/Pause Button */
 .play-btn, .pause-btn {
     width: 30px;
     height: 30px;
-    background-color: #1db954;
+    background-color: #999; /* Gray color */
     border: none;
     border-radius: 50%;
     cursor: pointer;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0; /* Hide default button text */
 }
 
 .play-btn::before {
     content: '';
     position: absolute;
-    left: 11px;
-    top: 7px;
+    left: 12px;
     width: 0;
     height: 0;
     border-left: 10px solid white;
