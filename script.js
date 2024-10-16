@@ -1,6 +1,7 @@
-// JavaScript to handle play/pause functionality
+// JavaScript to handle play/pause functionality and progress bar
 const audio = document.getElementById('audio');
 const playPauseBtn = document.getElementById('playPauseBtn');
+const progressBar = document.getElementById('progressBar');
 
 // Function to toggle play and pause
 function togglePlayPause() {
@@ -18,8 +19,15 @@ function togglePlayPause() {
 // Add event listener to the button
 playPauseBtn.addEventListener('click', togglePlayPause);
 
-// Change button style on audio end
+// Update progress bar as the audio plays
+audio.addEventListener('timeupdate', () => {
+    const progressPercent = (audio.currentTime / audio.duration) * 100;
+    progressBar.style.width = `${progressPercent}%`;
+});
+
+// Reset play button when audio ends
 audio.addEventListener('ended', () => {
     playPauseBtn.classList.remove('pause-btn');
     playPauseBtn.classList.add('play-btn');
+    progressBar.style.width = '0%'; // Reset progress bar
 });
