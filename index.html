@@ -19,20 +19,22 @@
             <div class="social-icon"></div>
             <div class="social-icon"></div>
         </div>
-        
-        <!-- Audio Player -->
+
+        <!-- Simplified Audio Player -->
         <div class="audio-player" id="audioPlayer">
-            <img src="album-cover.jpg" alt="Album Cover" class="album-cover"> <!-- Replace with your album cover image -->
+            <img src="album-cover.jpg" alt="Album Cover" class="album-cover"> <!-- Replace with album cover image -->
             <div class="audio-info">
                 <h3>Song Title</h3>
-                <p class="duration">3:45</p>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
             </div>
-            <button id="playPauseBtn" class="play-btn"></button>
+            <button id="playPauseBtn" class="play-btn"></button> <!-- Play/Pause button -->
         </div>
     </div>
 
-    <audio id="audio" src="your-audio-file.mp3" autoplay></audio> <!-- Replace with your audio file -->
+    <audio id="audio" src="your-audio-file.mp3" autoplay></audio> <!-- Replace with audio file -->
 
-    <script src="script.js"></script> <!-- Link to the JavaScript file -->
+    <script src="script.js"></script> <!-- Link to JavaScript file -->
 </body>
 </html>
