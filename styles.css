@@ -57,7 +57,7 @@ body {
 
 /* Smaller social icons */
 .social-link i {
-    font-size: 40px; /* Icons are now 40px by 40px */
+    font-size: 20px; /* Icons are now 40px by 40px */
     color: #777; /* Default gray color */
     transition: color 0.3s ease; /* Smooth color transition */
 }
