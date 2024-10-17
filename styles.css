@@ -59,9 +59,9 @@ body {
 .social-link {
     text-decoration: none;
     color: #777; /* Gray color */
-    font-size: 200px; /* Icon size (200px by 200px) */
-    width: 300px;
-    height: 300px;
+    font-size: 150px; /* Icon size (200px by 200px) */
+    width: 150px;
+    height: 150px;
     transition: color 0.3s ease;
 }
 
