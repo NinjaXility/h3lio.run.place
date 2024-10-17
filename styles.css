@@ -12,8 +12,8 @@ body {
 
 /* Profile card styling */
 .profile-card {
-    width: 700px; /* Increased the width */
-    background-color: #1e1e1e; /* Darker background for the card */
+    width: 400px;
+    background-color: #1e1e1e;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -21,14 +21,11 @@ body {
 
 /* Profile picture */
 .profile-picture {
-    width: 90px; /* Slightly larger */
-    height: 90px;
-    background-color: #555; /* Placeholder color */
+    width: 80px;
+    height: 80px;
+    background-color: #555;
     border-radius: 50%;
     margin: 0 auto;
-    background-image: url('your-avatar-url.jpg'); /* Replace with actual avatar image */
-    background-size: cover;
-    background-position: center;
 }
 
 /* Name and bio styling */
@@ -41,28 +38,32 @@ body {
 
 .name-bio h2 {
     margin: 0;
-    font-size: 1.4em; /* Slightly larger */
+    font-size: 1.4em;
     color: #ffffff;
 }
 
 .name-bio p {
     margin-top: 8px;
-    font-size: 1em; /* Adjusted */
-    color: #aaa; /* Light gray for the bio */
+    font-size: 1em;
+    color: #aaa;
 }
 
 /* Social media links */
 .socials {
     display: flex;
-    justify-content: space-around; /* Centered icons */
+    justify-content: space-between;
     margin-top: 15px;
 }
 
+.socials a {
+    text-decoration: none;
+}
+
 .social-icon {
-    width: 45px; /* Increased size */
-    height: 45px;
-    background-color: #777; /* Placeholder background */
+    width: 40px;
+    height: 40px;
     border-radius: 5px;
+    object-fit: cover; /* Makes sure the icon fits the container */
 }
 
 /* Discord presence */
@@ -73,5 +74,5 @@ body {
 .discord-presence img {
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-    width: 100%; /* Make it full width inside the profile card */
+    width: 100%;
 }
