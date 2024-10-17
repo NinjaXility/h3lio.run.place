@@ -1,0 +1,12 @@
+{
+    "description": "my personal website",
+    "repo": "https://github.com/ninjaxility/ninjaxility.github.io",
+    "owner": {
+        "username": "ninjaxility",
+        "email": "ninjaxility@gmail.com",
+        "discord": "that_one_lt"
+    },
+    "record": {
+        "CNAME": "ninjaxility.github.io"
+    }
+} 
