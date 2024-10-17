@@ -12,7 +12,7 @@ body {
 
 /* Profile card styling */
 .profile-card {
-    width: 450px; /* Increased the width */
+    width: 700px; /* Increased the width */
     background-color: #1e1e1e; /* Darker background for the card */
     padding: 20px;
     border-radius: 10px;
