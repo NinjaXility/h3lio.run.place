@@ -1,67 +1,71 @@
 /* General body styling */
 body {
-    margin: 0;
-    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #2c2f33;
+    background-color: #121212; /* Dark background */
+    color: white;
     font-family: Arial, sans-serif;
+    text-align: center;
 }
 
 /* Profile card styling */
 .profile-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #23272a;
+    width: 350px;
+    background-color: #1e1e1e; /* Darker background for the card */
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    max-width: 300px;
-    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-/* Profile picture styling */
+/* Profile picture */
 .profile-picture {
     width: 80px;
     height: 80px;
-    background-image: url('your-avatar-url.jpg'); /* Replace with your avatar */
+    background-color: #555; /* Placeholder color */
+    border-radius: 50%;
+    margin: 0 auto;
+    background-image: url('your-avatar-url.jpg'); /* Replace with actual avatar image */
     background-size: cover;
     background-position: center;
-    border-radius: 50%;
-    margin-bottom: 10px;
 }
 
 /* Name and bio styling */
+.name-bio {
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
 .name-bio h2 {
-    font-size: 20px;
-    color: white;
+    margin: 0;
+    font-size: 1.2em;
+    color: #ffffff;
 }
 
 .name-bio p {
-    font-size: 14px;
-    color: #b9bbbe;
-    margin-top: 5px;
+    margin-top: 8px;
+    font-size: 0.9em;
+    color: #aaa; /* Light gray for the bio */
 }
 
-/* Social media icons styling */
+/* Social media links */
 .socials {
     display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 15px;
+    justify-content: space-between;
+    margin-top: 10px;
 }
 
 .social-icon {
-    width: 24px;
-    height: 24px;
-    background-color: #7289da; /* Example icon background color */
-    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: #777; /* Placeholder background */
+    border-radius: 5px;
 }
 
-/* Discord presence embed styling */
+/* Discord presence */
 .discord-presence {
     margin-top: 20px;
 }
@@ -69,4 +73,5 @@ body {
 .discord-presence img {
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    width: 100%; /* Make it full width inside the profile card */
 }
