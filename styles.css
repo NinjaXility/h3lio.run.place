@@ -82,17 +82,3 @@ body {
     width: 100%;
 }
 
-/* Status Text and Additional Info */
-#presence-container {
-    margin-top: 15px;
-}
-
-#status {
-    font-size: 1.1em;
-    margin-bottom: 5px;
-}
-
-#spotify, #game {
-    font-size: 0.9em;
-    color: #bbb;
-}
