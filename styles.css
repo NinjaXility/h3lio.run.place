@@ -26,7 +26,11 @@ body {
     background-color: #555;
     border-radius: 50%;
     margin: 0 auto;
+background-image: url('images/pfpp.jpg'); /* This is your PFP image */
+    background-size: cover;
+    background-position: center;
 }
+
 
 /* Name and bio styling */
 .name-bio {
