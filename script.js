@@ -1,63 +1,66 @@
-const presenceContainer = document.getElementById("presence-container");
-const statusElement = document.getElementById("status");
-const spotifyElement = document.getElementById("spotify");
-const gameElement = document.getElementById("game");
+// WebSocket for Lanyard Discord Presence
+const socket = new WebSocket('wss://api.lanyard.rest/socket');
+const userId = "511106356267319296"; // Replace with your Discord User ID
 
-async function fetchDiscordPresence() {
-    try {
-        const response = await fetch("https://api.lanyard.rest/v1/users/511106356267319296");
-        const data = await response.json();
+// HTML element to display Discord presence
+const presenceEl = document.getElementById('discord-status');
 
-        const presence = data.data;
-        const status = presence.discord_status;
+// WebSocket connection logic
+socket.addEventListener('open', () => {
+    console.log('Connected to Lanyard WebSocket');
+    
+    // Subscribe to the Lanyard WebSocket for your Discord user ID
+    socket.send(JSON.stringify({
+        op: 2,
+        d: {
+            subscribe_to_id: userId,
+        },
+    }));
+});
 
-        // Default statuses
-        let statusMessage = "";
-        switch (status) {
-            case "online":
+socket.addEventListener('message', (event) => {
+    const data = JSON.parse(event.data);
+    
+    if (data.t === 'INIT_STATE' || data.t === 'PRESENCE_UPDATE') {
+        const presence = data.d;
+
+        // Update the status message based on Discord status
+        let statusMessage = '';
+        switch (presence.discord_status) {
+            case 'online':
                 statusMessage = "Will respond almost instantly!";
                 break;
-            case "idle":
+            case 'idle':
                 statusMessage = "AFK";
                 break;
-            case "dnd":
+            case 'dnd':
                 statusMessage = "Busy/might respond 70% of the time";
                 break;
-            case "offline":
+            case 'offline':
                 statusMessage = "Sleeping";
                 break;
         }
 
-        statusElement.innerHTML = statusMessage;
-
-        // Spotify Status
+        // If Spotify is active, display the song being listened to
         if (presence.listening_to_spotify) {
             const song = presence.spotify.song;
             const artist = presence.spotify.artist;
-            spotifyElement.innerHTML = `Listening to <strong>${song}</strong> by ${artist}`;
-        } else {
-            spotifyElement.innerHTML = ""; // Hide Spotify element when not listening
+            const album = presence.spotify.album;
+            statusMessage = `Listening to ${song} by ${artist}`;
         }
-
-        // Game Status
+        
+        // If playing a game, display the game being played
         if (presence.activities && presence.activities.length > 0) {
-            const game = presence.activities.find(activity => activity.type === 0); // Game activity
+            const game = presence.activities.find(activity => activity.type === 0); // Type 0 is "Playing a game"
             if (game) {
-                gameElement.innerHTML = `Playing <strong>${game.name}</strong>`;
-            } else {
-                gameElement.innerHTML = ""; // Hide Game element when not playing
+                statusMessage = `Playing ${game.name}`;
             }
-        } else {
-            gameElement.innerHTML = ""; // Hide Game element when no activity
         }
-    } catch (error) {
-        console.error("Error fetching Discord presence:", error);
+
+        presenceEl.innerHTML = statusMessage;
     }
-}
+});
 
-// Fetch presence data on load
-fetchDiscordPresence();
-
-// Refresh presence data every 15 seconds
-setInterval(fetchDiscordPresence, 15000);
-
+socket.addEventListener('close', () => {
+    presenceEl.innerHTML = 'Disconnected from Discord';
+});
